@@ -1,0 +1,118 @@
+.news {
+
+  &__body {}
+
+  .cards-news {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    @media (min-width: $md-3 + px) {
+      justify-content: flex-start;
+    }
+    @include adaptiv-Side(margin-bottom, 30, 15);
+
+    &__row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      @media (min-width: $md-2 + px) {
+        margin: 0 -10px;
+      }
+      @media (min-width: $md-3 + px) {
+        margin: 0 -20px;
+      }
+
+    }
+
+    &__col {
+      width: 100%;
+      height: auto;
+      text-align: center;
+      display: flex;
+      @include adaptiv-Side(margin-bottom, 30, 15);
+
+      @media (min-width: $md-2 + px) {
+        width: 50%;
+        flex: 0 1 50%;
+      }
+      @media (min-width: $md-3 + px) {
+        flex: 0 1 33.333%;
+        width: 33.333%;
+        height: 100%;
+        text-align: left;
+      }
+
+    }
+
+    &__wrapper {
+      width: 100%;
+
+      @media (min-width: $md-2 + px) {
+        padding: 0 10px;
+      }
+      @media (min-width: $md-3 + px) {
+        padding: 0 20px;
+      }
+
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      font-family: Raleway;
+    }
+
+    &__top {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 20px;
+      @media (min-width: $md-3 + px) {
+        margin: 0 -15px;
+        flex-direction: row;
+        @include adaptiv-Side(margin-bottom, 60, 25);
+      }
+    }
+
+    &__date,
+    &__title {
+      @media (min-width: $md-3 + px) {
+        padding: 0 15px;
+      }
+    }
+
+    &__date {
+      margin-bottom: 10px;
+      @media (min-width: $md-3 + px) {
+        margin: 0;
+      }
+    }
+
+    &__number {
+      font-weight: 500;
+      @include adaptiv-link(60, 35, #ccc, 60px, 40px, uppercase);
+    }
+
+    &__month {
+      display: block;
+      @include adaptiv-link(25, 21, #cccccc, 31px, 24px, uppercase);
+    }
+
+    &__title {
+      font-weight: 600;
+      letter-spacing: 0.015em;
+      @include adaptiv-link(24, 16, #333333, 36px, 24px);
+    }
+
+    &__text {
+      margin-bottom: 30px;
+      font-weight: 500;
+      @include adaptiv-link(18, 16, #878787, 30px, 24px);
+      @include adaptiv-Side(margin-bottom, 60, 25);
+    }
+
+  }
+
+}

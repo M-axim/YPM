@@ -1,0 +1,3 @@
+.block-padding {
+  @include adaptiv-Side(padding, 150, 25, 15, 15, 60, 20);
+}

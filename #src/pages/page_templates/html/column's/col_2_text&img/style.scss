@@ -1,0 +1,82 @@
+.cards {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  @include adaptiv-Side(margin-top, 50, 25);
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $md-5 + px) {
+    margin-top: 110px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    text-align: center;
+    align-self: center;
+    @media (min-width: $md-3 + px) {
+      flex-direction: row;
+      margin: 0 -30px;
+      flex-wrap: nowrap;
+      text-align: left;
+      align-self: flex-start;
+    }
+  }
+
+  &_reverse {
+    @media (min-width: $md-3 + px) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__col_2 {
+    width: 100%;
+    display: flex;
+    @include adaptiv-Side(margin-bottom, 30, 15);
+    justify-content: center;
+
+    @media (min-width: $md-3 + px) {
+      flex: 0 1 50%;
+      padding: 0 30px;
+      width: 50%;
+    }
+
+  }
+
+  &__col_2:last-child {
+    @media (min-width: $md-3 + px) {
+      padding: 0 0 0 30px;
+    }
+  }
+
+  &__title,
+  &__text {
+    font-weight: 500;
+    @media (min-width: $md-3 + px) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    letter-spacing: 0.025em;
+    @include adaptiv-link(50, 25, #0169b4, 45px, 24px);
+    @include adaptiv-Side(margin-bottom, 30, 15);
+  }
+
+  &__text {
+    @include adaptiv-link(18, 16, #666666, 30px, 24px);
+    @include adaptiv-Side(margin-bottom, 50, 15);
+  }
+
+  &__img {
+    text-align: center;
+  }
+
+  &__img img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+}

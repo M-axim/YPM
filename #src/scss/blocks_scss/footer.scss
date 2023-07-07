@@ -1,0 +1,153 @@
+.footer {
+
+  &__body {
+    @include adaptiv-Side(padding, 100, 30, 15, 15, 0, 0);
+    @media (min-width: $md-3 + px) {
+      overflow: hidden;
+    }
+
+    .footer__cards {
+      @include adaptiv-Side(margin-bottom, 100, 15);
+
+
+      .cards-footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @include adaptiv-Side(margin-bottom, 30, 15);
+
+        @media (min-width: $md-3 + px) {
+          justify-content: flex-start;
+        }
+
+        &__row {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -10px;
+          @media (min-width: $md-3 + px) {
+            margin: 0 -20px;
+          }
+        }
+
+        &__col {
+          width: 100%;
+          display: flex;
+          @include adaptiv-Side(margin-bottom, 30, 15);
+          @media (min-width: $md-1 + px) {
+            width: 50%;
+            flex: 0 1 50%;
+          }
+          @media (min-width: $md-2 + px) {
+            flex: 0 1 33.333%;
+            width: 33.333%;
+          }
+          @media (min-width: $md-3 + px) {
+            flex: 0 1 25%;
+            width: 25%;
+          }
+
+        }
+
+        &__wrapper {
+          padding: 0 10px;
+          width: 100%;
+          @media (min-width: $md-3 + px) {
+            padding: 0 20px;
+          }
+        }
+
+        &__item {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          padding: 15px 0;
+          text-align: center;
+          @media (min-width: $md-3 + px) {
+            padding: 30px 0;
+          }
+        }
+
+        &__img {
+          position: relative;
+          width: 70px;
+          height: 70px;
+          margin: 0 auto;
+          border: 2px solid white;
+          border-radius: 50%;
+          @include adaptiv-Side(margin-bottom, 30, 20);
+        }
+
+        &__img i {
+          @include position(absolute, top, 50%, left, 50%);
+          display: block;
+          max-width: 100%;
+          @include adaptiv-link(24, 30, #fff, 27px, 35px);
+        }
+
+        &__text {
+          display: block;
+          letter-spacing: 0.025em;
+          @include adaptiv-link(14, 18, #fff, 1.2, 1);
+        }
+
+      }
+
+    }
+
+  }
+
+  .social-block {
+    display: flex;
+    justify-content: center;
+    @include adaptiv-Side(margin-bottom, 50, 25);
+
+    &__list {
+      display: flex;
+    }
+
+    &__label {
+      margin-bottom: 10px;
+      @include adaptiv-Side(margin-right, 60, 25);
+      width: 50%;
+      flex: 0 1 50%;
+      @media (min-width: $md-2 + px) {
+        width: 100%;
+      }
+    }
+
+    &__label:last-child {
+      margin: 0;
+    }
+
+    &__icon {
+      font-weight: 400;
+      @include adaptiv-link(42, 25, #fff, 27px, 24px);
+    }
+
+  }
+
+  .btn-footer {
+    display: flex;
+    justify-content: center;
+
+    &__img {
+      width: 100px;
+      height: 40px;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      background: #fff;
+      position: relative;
+      @media (min-width: $md-1 + px) {
+        width: 140px;
+        height: 50px;
+      }
+    }
+
+    &__img i {
+      @include adaptiv-link(48, 24, #a72b8f, 27px, 24px);
+      @include position(absolute, top, 50%, left, 50%);
+    }
+
+  }
+
+}

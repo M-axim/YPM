@@ -1,0 +1,29 @@
+.btn__wrapper {
+  display: block;
+  @media (min-width: $md-1 + px) {
+    display: inline-block;
+  }
+
+  .btn {
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    background: rgba(146, 230, 255, 0.5);
+    border-radius: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+    padding: 10px 15px;
+    @include adaptiv-link(20, 15, #fff, 24px, 24px, uppercase);
+    @media (min-width: $md-1 + px) {
+      width: auto;
+      padding: 15px 50px;
+    }
+  }
+
+  .btn:hover {
+    @media (min-width: $md-3 + px) {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+
+}

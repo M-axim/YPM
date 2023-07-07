@@ -1,0 +1,20 @@
+.title-project {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include adaptiv-Side(margin-bottom, 35, 20);
+  @media (min-width: $md-3 + px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__text {
+    font-family: Raleway;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    @include adaptiv-link(50, 25, #0169b4, 50px, 24px, capitalize);
+  }
+
+}

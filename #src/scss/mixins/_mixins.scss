@@ -1,0 +1,92 @@
+/////////MIXINS/////////
+
+// Адаптивный шрифт
+@mixin adaptiv-link($pcSize, $mobSize, $color, $lineHeightPC: normal, $lineHeightTel: $lineHeightPC, $transform: none) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $mainMaxWidth - 320;
+  font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  color: $color;
+  text-transform: $transform;
+  @if ($lineHeightTel == normal) {
+    line-height: $lineHeightTel;
+  } @else {
+    line-height: calc(#{$lineHeightTel} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  }
+  @media (min-width: $mainMaxWidth + px) {
+    font-size: $pcSize + px;
+    line-height: $lineHeightPC;
+  }
+}
+
+@mixin adaptiv-height($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $mainMaxWidth - 320;
+  height: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  @media (min-width: $mainMaxWidth + px) {
+    height: $pcSize + px;
+  }
+}
+
+@mixin adaptiv-width($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $mainMaxWidth - 320;
+  width: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  @media (min-width: $mainMaxWidth + px) {
+    width: $pcSize + px;
+  }
+}
+
+@mixin imgStyle {
+  max-width: 100%;
+  display: block;
+}
+
+@mixin adaptiv-Side(
+  $side,
+  $pcSide-1: 0, $telSide-1: 0, // top
+  $pcSide-2: 0, $telSide-2: 0, // right
+  $pcSide-3: $pcSide-1, $telSide-3: $telSide-1, // down
+  $pcSide-4: $pcSide-2, $telSide-4: $telSide-2 // left
+) {
+
+  $addSize: $pcSide-1 - $telSide-1;
+  $addSize2: $pcSide-2 - $telSide-2;
+  $addSize3: $pcSide-3 - $telSide-3;
+  $addSize4: $pcSide-4 - $telSide-4;
+  $maxWidth: $mainMaxWidth - 320;
+  @if $side == padding or $side == margin {
+    #{$side}: calc(#{$telSide-1 + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}))
+    calc(#{$telSide-2 + px} + #{$addSize2} * ((100vw - 320px) / #{$maxWidth}))
+    calc(#{$telSide-3 + px} + #{$addSize3} * ((100vw - 320px) / #{$maxWidth}))
+    calc(#{$telSide-4 + px} + #{$addSize4} * ((100vw - 320px) / #{$maxWidth}));
+    @media (min-width: $mainMaxWidth + px) {
+      #{$side}: $pcSide-1 + px $pcSide-2 + px $pcSide-3 + px $pcSide-4 + px;
+    }
+  } @else if $side == padding-right or $side == padding-left or $side == margin-right or $side == margin-left {
+    #{$side}: calc(#{$telSide-1 + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    &:last-child {
+      #{$side}: 0;
+    }
+    @media (min-width: $mainMaxWidth + px) {
+      #{$side}:  $pcSide-1 + px;
+    }
+  } @else {
+    #{$side}: calc(#{$telSide-1 + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    @media (min-width: $mainMaxWidth + px) {
+      #{$side}: $pcSide-1 + px;
+    }
+  }
+}
+
+@mixin position($position, $side1, $side1-distance, $side2, $side2-distance) {
+  position: $position;
+  #{$side1}: $side1-distance;
+  #{$side2}: $side2-distance;
+  @if $side1-distance == 50% and $side2-distance == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $side2-distance == 50% {
+    transform: translateX(-50%);
+  } @else if $side1-distance == 50 {
+    transform: translateY(-50%);
+  }
+}
